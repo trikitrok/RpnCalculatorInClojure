@@ -7,6 +7,6 @@
     (evaluate "0") => 0
     (evaluate "1") => 1)
   
-  (fact "it adds two numbers"
+  (fact "it adds several numbers"
     (evaluate "0 1 +") => 1
-    (evaluate "1 2 +") => 3))
+    (evaluate "1 2 5 + +") => 8))
