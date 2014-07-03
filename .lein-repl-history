@@ -1,0 +1,23 @@
+(def expression "0 1 +")
+(clojure.string/split expression #"\s")
+(def operators {"+" +})
+(def tokens (clojure.string/split expression #"\s"))
+(map #(get operators % (parse-int %)) tokens)
+(defn parse-int [s]
+  (Integer/parseInt (re-find #"\A-?\d+" s)))
+(map #(get operators % (parse-int %)) tokens)
+(get operators "1" (parse-int "1"))
+(get operators "+" (parse-int "+"))
+(defn parse-expression [expression]
+  (let 
+    [operators {"+" +}
+     parse-token 
+     (fn [token]
+       (let [op (get operators token)]
+         (if (nil? op)
+           (parse-int token)
+           op)))]
+    (map parse-token (clojure.string/split expression #"\s"))))
+expression
+(parse-expression expression)
+(vec (parse-expression expression))
