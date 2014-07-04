@@ -24,4 +24,8 @@
     (evaluate "10 5 5 / /") => 10)
   
   (fact "it computes an expression with several operators"
-    (evaluate "4 2 / 5 + 10 * 5 6 - +") => 69))
+    (evaluate "4 2 / 5 + 10 * 5 6 - +") => 69
+    (evaluate "3 2 1 + *") => 9
+    (evaluate "1 2 + 4 * 5 + 3 -") => 14
+    (evaluate "5 1 2 + 4 * + 3 -") => 14
+    (evaluate "0 1 - 4 5 * *") => -20))
