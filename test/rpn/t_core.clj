@@ -13,4 +13,8 @@
   
   (fact "it subtracts several numbers"
     (evaluate "0 1 -") => -1
-    (evaluate "1 2 5 - -") => 4))
+    (evaluate "1 2 5 - -") => 4)
+  
+  (fact "it multiplies several numbers"
+    (evaluate "0 1 *") => 0
+    (evaluate "1 2 5 * *") => 10))

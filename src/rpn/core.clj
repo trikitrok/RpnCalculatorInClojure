@@ -6,7 +6,7 @@
 
 (defn parse-expression [expression]
   (let 
-    [operators {"+" + "-" -}
+    [operators {"+" + "-" - "*" *}
      parse-token 
      (fn [token]
        (let [op (get operators token)]
