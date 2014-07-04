@@ -21,4 +21,7 @@
   
   (fact "it divides several numbers (integer division)"
     (evaluate "4 2 /") => 2
-    (evaluate "10 5 5 / /") => 10))
+    (evaluate "10 5 5 / /") => 10)
+  
+  (fact "it computes an expression with several operators"
+    (evaluate "4 2 / 5 + 10 * 5 6 - +") => 69))
