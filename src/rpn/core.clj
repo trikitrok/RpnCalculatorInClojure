@@ -23,8 +23,9 @@
 
 (defn evaluate [expression]
   (nth 
-    (reduce process-symbol
-            []
-            (parse-expression expression))
+    (reduce 
+      process-symbol
+      []
+      (parse-expression expression))
     0))
 
