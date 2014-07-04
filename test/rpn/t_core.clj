@@ -9,4 +9,8 @@
   
   (fact "it adds several numbers"
     (evaluate "0 1 +") => 1
-    (evaluate "1 2 5 + +") => 8))
+    (evaluate "1 2 5 + +") => 8)
+  
+  (fact "it subtracts several numbers"
+    (evaluate "0 1 -") => -1
+    (evaluate "1 2 5 - -") => 4))

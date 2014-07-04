@@ -21,3 +21,7 @@
 expression
 (parse-expression expression)
 (vec (parse-expression expression))
+(def stack [1 2 5])
+(conj (drop-last 2 stack) (apply - (take-last 2 stack)))
+(conj (apply - (take-last 2 stack)) (drop-last 2 stack))
+(conj (vec (drop-last 2 stack)) (apply - (take-last 2 stack)))
