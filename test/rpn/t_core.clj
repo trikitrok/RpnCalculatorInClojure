@@ -17,4 +17,8 @@
   
   (fact "it multiplies several numbers"
     (evaluate "0 1 *") => 0
-    (evaluate "1 2 5 * *") => 10))
+    (evaluate "1 2 5 * *") => 10)
+  
+  (fact "it divides several numbers (integer division)"
+    (evaluate "4 2 /") => 2
+    (evaluate "10 5 5 / /") => 10))

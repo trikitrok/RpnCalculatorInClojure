@@ -25,3 +25,5 @@ expression
 (conj (drop-last 2 stack) (apply - (take-last 2 stack)))
 (conj (apply - (take-last 2 stack)) (drop-last 2 stack))
 (conj (vec (drop-last 2 stack)) (apply - (take-last 2 stack)))
+(/ 3 2)
+(quot 3 2)
