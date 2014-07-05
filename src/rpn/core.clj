@@ -1,5 +1,5 @@
 (ns rpn.core
-   [:use [clojure [string :only [split]]]])
+  [:use [clojure [string :only [split]]]])
 
 (defn parse-int [s]
   (Integer/parseInt (re-find #"\A-?\d+" s)))
@@ -9,10 +9,9 @@
     [operators {"+" + "-" - "*" * "/" quot}
      parse-token 
      (fn [token]
-       (let [op (get operators token)]
-         (if (nil? op)
-           (parse-int token)
-           op)))]
+       (if (contains? operators token)
+         (get operators token)
+         (parse-int token)))]
     (map parse-token 
          (split expression #"\s"))))
 
