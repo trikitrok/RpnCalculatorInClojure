@@ -1,21 +1,21 @@
 (ns rpn.core
   [:use [clojure [string :only [split]]]])
 
-(defn parse-int [s]
+(defn- parse-int [s]
   (Integer/parseInt (re-find #"\A-?\d+" s)))
 
-(defn parse [expression]
+(defn- parse-token [token]
   (let 
-    [operators {"+" + "-" - "*" * "/" quot}
-     parse-token 
-     (fn [token]
-       (if (contains? operators token)
-         (get operators token)
-         (parse-int token)))]
-    (map parse-token 
-         (split expression #"\s"))))
+    [operators {"+" + "-" - "*" * "/" quot}]
+    (if-let [op (get operators token)] 
+      op 
+      (parse-int token))))
 
-(defn process-symbol [stack symbol]
+(defn- parse [expression]
+  (map parse-token 
+       (split expression #"\s")))
+
+(defn- process-symbol [stack symbol]
   (if (number? symbol)
     (conj stack symbol)
     (conj (pop (pop stack))
